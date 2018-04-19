@@ -21,7 +21,11 @@
           <td><%= link_to p.name, p %></td>
           <td><%= p.url %></td>
           <td><%= p.description %></td>
-          <th><%= link_to "Editar", edit_product_path(p) %></th>
+          <th>
+            <%= link_to "Editar", edit_product_path(p) %>
+            <%= link_to "Eliminar", p, method: :delete, data:{confirm:"Estas seguro de eliminar este producto?"} %>
+          </th>
+
         </tr>
         <%end %>
       </table>
