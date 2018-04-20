@@ -9,7 +9,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path, nocite: "El producto fue publicado con exito"
+      redirect_to products_path, notice: "El producto fue publicado con éxito"
+
     else
       render :new
     end
@@ -25,8 +26,8 @@ class ProductsController < ApplicationController
 
   def update
     product= Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to products_path, notice: "El producto ha sido modificado con exito"
+    if product.update(product_params)
+      redirect_to products_path, notice: "El producto ha sido modificado con éxito"
     else
       render :edit
     end
@@ -35,7 +36,7 @@ class ProductsController < ApplicationController
   def destroy
     product= Product.find(params[:id])
     product.destroy
-    redirect_to products_path, notice: "EL producto fue eliminado con exito"
+    redirect_to products_path, notice: "EL producto fue eliminado con éxito"
   end
 
   private
