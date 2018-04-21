@@ -15,6 +15,7 @@
           <% if signed_in? %>
           <div>
             <%= current_user.name %>
+            <%= link_to 'Salir', logout_path, method: :delete %>
           </div>
           <% end %>
     <% if  flash[:notice] %>
